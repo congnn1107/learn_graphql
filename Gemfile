@@ -47,3 +47,6 @@ group :development do
 end
 
 gem "graphql"
+gem "aasm"
+gem "after_commit_everywhere"
+gem "active_type"

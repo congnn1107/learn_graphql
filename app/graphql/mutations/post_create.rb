@@ -13,9 +13,11 @@ module Mutations
       # raise GraphQL::ExecutionError.new "Error creating post", extensions: post.errors.to_hash unless post.save
 
       # { post: post }
-      form = ::Posts::CreateForm.new(input)
+      # form = ::Posts::CreateForm.new(input)
+      form = ::Posts::CreateForm2.new(input.to_h)
       if form.valid?
-        { post: form.create }
+        # { post: form.create }
+        {post: form.save}
       else
         raise GraphQL::ExecutionError.new "Error creating post", extensions: form.errors.messages
       end
